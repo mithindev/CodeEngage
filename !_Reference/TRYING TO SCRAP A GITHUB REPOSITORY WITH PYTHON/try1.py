@@ -26,7 +26,7 @@ if response.status_code == 200:
                 file_content = file_response.text
                 print(f"Content of {file_name}:")
                 print(file_content)
-                print("=" * 50)  # Separation line
+                print("=" * 50)  # Seperation of lines
             else:
                 print(f"Error downloading {file_name}: {file_response.status_code}")
 else:
