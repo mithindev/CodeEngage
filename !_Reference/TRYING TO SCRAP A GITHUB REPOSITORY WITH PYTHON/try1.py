@@ -1,7 +1,7 @@
 import requests
 
 owner = "mithindev"
-repository = "CodeEngage"
+repository = "COLLEGE"
 
 # Construct the API URL to list contents of the repository
 api_url = f"https://api.github.com/repos/{owner}/{repository}/contents"
