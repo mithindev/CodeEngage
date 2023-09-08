@@ -1,0 +1,36 @@
+import requests
+import os
+
+def scrape_github_repo(repo_url, token, output_file):
+    # Define the GitHub API endpoint
+    base_url = f'{repo_url.rstrip("/")}/contents/'
+
+    # List of file extensions to exclude (images and videos)
+    exclude_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.mp4', '.avi', '.mkv', '.mov', '.wmv']
+
+    # Function to fetch files and folders recursively and save content, excluding images and videos
+    def fetch_files_and_save_content(url):
+        response = requests.get(url, headers={'Authorization': f'token {token}'})
+        data = response.json()
+
+        for item in data:
+            if item['type'] == 'file':
+                file_name = item['name']
+                file_extension = os.path.splitext(file_name)[1].lower()  # Get the file extension in lowercase
+                if file_extension not in exclude_extensions:
+                    print(f"Downloading file: {item['path']}")
+                    file_url = item['download_url']
+                    file_content = requests.get(file_url).text
+                    with open(output_file, 'a', encoding='utf-8') as file:
+                        file.write(f"File: {item['path']}\n")
+                        file.write(file_content)
+                        file.write('\n\n')
+            elif item['type'] == 'dir':
+                fetch_files_and_save_content(item['url'])
+
+    # Start scraping from the root directory
+    fetch_files_and_save_content(base_url)
+
+# Example usage:
+# Replace 'YourRepoURL', 'YourPAT', and 'output_file.txt' with the appropriate values
+# scrape_github_repo('YourRepoURL', 'YourPAT', 'output_file.txt')
