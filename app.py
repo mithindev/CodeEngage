@@ -150,14 +150,12 @@ async def get_response(request: Request, query: str = Form(...)):
     res = Response(response_data)
     return res
 
-
-
 # Example usage:
 
 if __name__ == "__main__":
     
     repo_name = "mithindev/mithindev"  # Replace with the GitHub repository name (owner/repo)
-    github_token = "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"  # Replace with your GitHub Personal Access Token
+    github_token = "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"  # Replace with your GitHub Personal Access Token
     output_file = "data/repository_contents.txt"  # Replace with the desired output file name
     
     scraper = GithubRepoScraper(repo_name, github_token)
