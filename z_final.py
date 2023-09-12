@@ -74,5 +74,5 @@ if __name__ == "__main__":
     clone_and_convert_to_text(repo_url, repo_dir, output_dir)
     print("Done with cloning!")
 
-
     create_vector_db(DATA_PATH, DB_FAISS_PATH)
+    print("Done with creating the vector database!")
