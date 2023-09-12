@@ -11,8 +11,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 def clone_and_convert_to_text(repo_url, repo_dir, output_dir):
     # Remove the existing directory if it exists
-    if os.path.exists(repo_dir):
-        shutil.rmtree(repo_dir)
+    # if os.path.exists(repo_dir):
+    #     shutil.rmtree(repo_dir)
 
     # Clone the repository to the local directory
     repo = git.Repo.clone_from(repo_url, repo_dir)
@@ -44,7 +44,7 @@ def clone_and_convert_to_text(repo_url, repo_dir, output_dir):
                     txt_file.write(content)
 
     # Clean up by removing the cloned repository
-    shutil.rmtree(repo_dir)
+    # shutil.rmtree(repo_dir)
 
 def create_vector_db(data_path, db_faiss_path):
     loader = DirectoryLoader(data_path, glob='*.txt')
@@ -67,5 +67,12 @@ if __name__ == "__main__":
 
     DATA_PATH = 'data/'
     DB_FAISS_PATH = 'vectorstore/db_faiss'
+
+    # if not os.path.exists(DATA_PATH):
+    #     os.makedirs(DATA_PATH)
+
+    clone_and_convert_to_text(repo_url, repo_dir, output_dir)
+    print("Done with cloning!")
+
 
     create_vector_db(DATA_PATH, DB_FAISS_PATH)
