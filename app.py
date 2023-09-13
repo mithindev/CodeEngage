@@ -159,7 +159,7 @@ async def get_response(request: Request, query: str = Form(...)):
 
 
 if __name__ == "__main__":
-    repo_url = "https://github.com/mithindev/mithindev"
+    repo_url = "https://github.com/HarishVijayV/Tic-Tac-Toe_jack"
     repo_dir = "cloned_repo"
     output_dir = "data"
 
@@ -175,4 +175,4 @@ if __name__ == "__main__":
     create_vector_db(DATA_PATH, DB_FAISS_PATH)
     print("Done with creating the vector database!")
 
-    uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True)
+    # uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True)
