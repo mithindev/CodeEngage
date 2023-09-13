@@ -15,8 +15,6 @@ from langchain.chains import LLMChain, RetrievalQA
 from langchain import PromptTemplate
 import streamlit as st 
 import json
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
 from fastapi import FastAPI, Form, Request, Response, File, Depends, HTTPException, status
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -24,6 +22,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.encoders import jsonable_encoder
 from typing import Dict
 import uvicorn
+
 
 def clone_and_convert_to_text(repo_url, repo_dir, output_dir):
     # Remove the existing directory if it exists
@@ -167,13 +166,13 @@ if __name__ == "__main__":
     DATA_PATH = 'data/'
     DB_FAISS_PATH = 'vectorstore/db_faiss'
 
-    # if not os.path.exists(DATA_PATH):
-    #     os.makedirs(DATA_PATH)
+    if not os.path.exists(DATA_PATH):
+        os.makedirs(DATA_PATH)
 
-    # clone_and_convert_to_text(repo_url, repo_dir, output_dir)
-    # print("Done with cloning!")
+    clone_and_convert_to_text(repo_url, repo_dir, output_dir)
+    print("Done with cloning!")
 
-    # create_vector_db(DATA_PATH, DB_FAISS_PATH)
-    # print("Done with creating the vector database!")
+    create_vector_db(DATA_PATH, DB_FAISS_PATH)
+    print("Done with creating the vector database!")
 
     uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True)
