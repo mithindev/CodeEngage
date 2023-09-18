@@ -1,0 +1,76 @@
+
+class O 
+
+	// This function receives input from the user to draw "O" on the respective position.
+
+
+{
+	function void draw(int num)
+	{
+		if(num = 1)
+		{
+			do Output.moveCursor(13,18);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+	
+		}
+		if(num = 2)
+		{       
+                	do Output.moveCursor(13,23.3);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		if(num = 3)
+		{
+                	do Output.moveCursor(13,28);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+
+		}
+		if(num = 4)
+		{
+                	do Output.moveCursor(17,18);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		if(num = 5)
+		{
+                	do Output.moveCursor(17,23.3);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		if(num = 6)
+		{
+                	do Output.moveCursor(17,28);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		if(num = 7)
+		{
+                	do Output.moveCursor(20.95,18);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		if(num = 8)
+		{
+                	do Output.moveCursor(20.95,23.3);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		if(num = 9)
+		{
+                	do Output.moveCursor(20.95,28);
+		        do Output.printString("O");
+		        do Output.moveCursor(6,0);
+
+		}
+		return;
+	}
+}

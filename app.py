@@ -159,7 +159,7 @@ async def get_response(request: Request, query: str = Form(...)):
 
 
 if __name__ == "__main__":
-    repo_url = "https://github.com/HarishVijayV/Tic-Tac-Toe_jack"
+    repo_url = "https://github.com/mithindev/NoteSnip"
     repo_dir = "cloned_repo"
     output_dir = "data"
 
@@ -169,10 +169,10 @@ if __name__ == "__main__":
     if not os.path.exists(DATA_PATH):
         os.makedirs(DATA_PATH)
 
-    clone_and_convert_to_text(repo_url, repo_dir, output_dir)
-    print("Done with cloning!")
+    # clone_and_convert_to_text(repo_url, repo_dir, output_dir)
+    # print("Done with cloning!")
 
-    create_vector_db(DATA_PATH, DB_FAISS_PATH)
-    print("Done with creating the vector database!")
+    # create_vector_db(DATA_PATH, DB_FAISS_PATH)
+    # print("Done with creating the vector database!")
 
-    # uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True)
+    uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True)

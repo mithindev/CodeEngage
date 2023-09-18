@@ -1,3 +1,6 @@
 stablecode-instruct-alpha-3b.ggmlv1.q5_1.bin
 
 /templates
+/!_BACKUP
+/__pycache__
+/cloned_repo

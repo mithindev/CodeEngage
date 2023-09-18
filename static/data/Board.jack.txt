@@ -1,0 +1,62 @@
+
+class Board {
+	field int xcordinate, ycordinate ;
+	
+	// A default constructor which receives the coordinators (x=y=128) from maiin class.
+	constructor Board new(int x,int y)
+	{
+		let xcordinate=x;
+		let ycordinate=y;
+		do build();
+		do fill_numbers();
+		return this;
+	}
+	// This function draws the board with base point of (x,y) with (128,128).
+	method void build()
+	{
+		do Screen.drawLine(xcordinate,ycordinate,xcordinate+120,ycordinate);
+		do Screen.drawLine(xcordinate,ycordinate,xcordinate,ycordinate+120);
+		do Screen.drawLine(xcordinate+120,ycordinate,xcordinate+120,ycordinate+120);
+		do Screen.drawLine(xcordinate,ycordinate+120,xcordinate+120,ycordinate+120);
+		do Screen.drawLine(xcordinate+40,ycordinate,xcordinate+40,ycordinate+120);
+		do Screen.drawLine(xcordinate+80,ycordinate,xcordinate+80,ycordinate+120);
+		do Screen.drawLine(xcordinate,ycordinate+40,xcordinate+120,ycordinate+40);
+		do Screen.drawLine(xcordinate,ycordinate+80,xcordinate+120,ycordinate+80);
+		return;
+	}
+
+	// This function prints the numbers into the board ,location is identified by adjusting curser positions.
+
+	method void fill_numbers()
+	{
+		do Output.moveCursor(13,18);
+		do Output.printInt(1);
+		do Output.moveCursor(13,23.3);
+		do Output.printInt(2);
+		do Output.moveCursor(13,28);
+		do Output.printInt(3);
+		
+		do Output.moveCursor(17,18);
+		do Output.printInt(4);
+		do Output.moveCursor(17,23.3);
+		do Output.printInt(5);
+		do Output.moveCursor(17,28);
+		do Output.printInt(6);
+		
+		do Output.moveCursor(20.95,18);
+		do Output.printInt(7);
+		do Output.moveCursor(20.95,23.3);
+		do Output.printInt(8);
+		do Output.moveCursor(20.95,28);
+		do Output.printInt(9);
+		return;
+	}
+
+	// A dispose function which deallocates
+
+	method void dispose()
+	{
+		do Memory.deAlloc(this);
+		return ;
+	}
+}	

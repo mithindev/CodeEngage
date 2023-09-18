@@ -1,0 +1,148 @@
+                                                                                     /*A main class-Game starts here*/
+class Main
+{
+	
+	function void main()
+	{
+		var int counter;
+		var Board board;
+		var Array arr;
+		var boolean flag;
+		var int n;
+		var int i;
+		let board=Board.new(130,130);
+		let arr=Array.new(10);
+		let flag = true;
+		let counter=0;
+		do Main.stuffs();
+                
+		while (flag)
+		{
+			let n = Keyboard.readInt("Player 1,choose a number between 1-9: ");
+			let i = 0 ;
+			
+			do Output.moveCursor(6,0);
+			while ((arr[n] = 1) | (arr[n] = -1) | (n < 1) | (n > 9))
+			{
+				let n = Keyboard.readInt("Player 1,Please select legal number: ");
+				let i = 0 ;
+				
+				do Output.moveCursor(6,0);
+			}
+			let arr[n]=1;
+			let counter = counter + 1 ;
+			do X.draw(n);
+			if (Main.Checkwinner(arr,1)=false)
+			{
+				do Output.printString("Player 1 won!Player 1 won!Player 1 won!");
+				let flag = false;
+			}
+			if ((counter = 9) & (flag))
+			{
+				do Output.printString("Oops! There is no winner");
+				do arr.dispose();
+				do board.dispose();
+				return;
+			}
+			if (flag)
+			{
+				let n = Keyboard.readInt("Player 2,choose a number between 1-9: ");
+				let i = 0 ;
+				
+				do Output.moveCursor(6,0);
+				while ((arr[n] = 1) | (arr[n] = -1) | (n < 1) | (n > 9))
+				{
+				
+					let n = Keyboard.readInt("Player 2,Please select legal number: ");
+					let i = 0 ;
+					
+					do Output.moveCursor(6,0);
+				}
+				let arr[n] = -1;
+				let counter = counter + 1;
+				do O.draw(n);
+				if (Main.Checkwinner(arr,-1) = false)
+				{
+					do Output.printString("Player 2 won!Player 2 won!Player 2 won!");
+					let flag = false;
+				}
+			}	
+		}
+		do arr.dispose();
+		do board.dispose();
+		return;
+	}
+
+	// This function checks if there is a winner or not ,if winner exists it returns false. 
+
+	function boolean Checkwinner(Array arr, int i)
+	{
+			if ((arr[1] = i) & (arr[2] = i) & (arr[3] = i))
+			{
+				do Screen.drawLine(128,128+20,128+120,128+20);
+				return false;
+			}
+			if ((arr[4] = i) & (arr[5] = i) & (arr[6] = i))
+			{
+				do Screen.drawLine(128,128+63,128+120,128+63);
+				return false;
+			}
+			if ((arr[7] = i) & (arr[8] = i) & (arr[9] = i))
+			{
+				do Screen.drawLine(128,128+97,128+120,128+97);
+				return false;
+			}
+			if ((arr[1] = i) & (arr[4] = i) & (arr[7] = i))
+			{
+				do Screen.drawLine(128+20,128,128+20,128+120);
+				return false;
+			}
+			if ((arr[2] = i) & (arr[5] = i) & (arr[8] = i))
+			{
+				do Screen.drawLine(128+60,128,128+60,128+120);
+				return false;
+			}
+			if ((arr[3] = i) & (arr[6] = i) & (arr[9] = i))
+			{
+				do Screen.drawLine(128+100,128,128+100,128+120);
+				return false;
+			}
+			if ((arr[1] = i) & (arr[5] = i) & (arr[9] = i))
+			{
+				do Screen.drawLine(128,128,128+120,128+120);
+				return false;
+			}
+			if ((arr[3] = i) & (arr[5] = i) & (arr[7] = i))
+			{
+				do Screen.drawLine(128,128+120,128+120,128);
+				return false;
+			}
+			return true;
+			
+	}
+
+	// This function writes the stuffs wanted on the screen.
+
+	function void stuffs()
+	{
+		do Output.moveCursor(1,0);
+		do Output.printString("XOXO");
+		do Output.moveCursor(1,60);
+		do Output.printString("XOXO");
+		do Output.moveCursor(1,20);
+		do Output.printString("Welcome To Tic Tac Toe !");
+		do Output.moveCursor(13,44);
+		do Output.printString("by");
+                do Output.moveCursor(15,47);
+		do Output.printString("Harish vijay");
+                do Output.moveCursor(16,47);
+		do Output.printString("");
+                do Output.moveCursor(17,47);
+		do Output.printString("");
+                do Output.moveCursor(18,47);
+		do Output.printString("");
+		do Output.moveCursor(6,0);
+		return;
+	}	
+	
+}
